@@ -1,0 +1,6 @@
+import { NextResponse } from "next/server";
+import { createClient } from "@/lib/supabase/server";
+import { getCurrentProfile } from "@/lib/auth";
+import { slugify } from "@/lib/utils";
+export async function GET() { const { data, error } = await (await createClient()).from("categories").select("id,name,slug,created_at").order("name"); if (error) return NextResponse.json({ code: "QUERY_FAILED", message: "Gagal mengambil kategori." }, { status: 500 }); return NextResponse.json({ data }); }
+export async function POST(request: Request) { const profile = await getCurrentProfile(); if (profile?.role !== "admin") return NextResponse.json({ code: "FORBIDDEN", message: "Admin diperlukan." }, { status: 403 }); const body = await request.json().catch(() => null); const name = typeof body?.name === "string" ? body.name.trim() : ""; const slug = typeof body?.slug === "string" && body.slug.trim() ? slugify(body.slug) : slugify(name); if (!name || !slug) return NextResponse.json({ code: "VALIDATION_ERROR", message: "Nama dan slug wajib diisi." }, { status: 400 }); const { data, error } = await (await createClient()).from("categories").insert({ name, slug }).select().single(); if (error) return NextResponse.json({ code: "CATEGORY_EXISTS", message: "Nama atau slug kategori sudah digunakan." }, { status: 409 }); return NextResponse.json({ data }, { status: 201 }); }

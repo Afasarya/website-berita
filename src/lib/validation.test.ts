@@ -1,0 +1,3 @@
+import { describe, expect, it } from "vitest";
+import { sanitizeArticleHtml, validateArticleInput, validateImage } from "./validation";
+describe("article validation", () => { it("rejects short content and title", () => { const result = validateArticleInput({ title: "short", content: "<p>tiny</p>", categoryId: "x", originality: true }); expect(result.valid).toBe(false); }); it("sanitizes unsafe HTML", () => { expect(sanitizeArticleHtml("<script>alert(1)</script><p>safe</p>")).toBe("<p>safe</p>"); }); it("requires valid image", () => { expect(validateImage(new File(["x"], "cover.jpg", { type: "image/jpeg" }))).toBe(true); expect(validateImage(new File(["x"], "bad.exe", { type: "application/octet-stream" }))).toBe(false); }); });

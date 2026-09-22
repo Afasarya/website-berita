@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bergaya — Portal Berita
 
-## Getting Started
+Portal berita Indonesia berbasis Next.js App Router, React, Tailwind CSS, dan Supabase.
 
-First, run the development server:
+## Menjalankan proyek
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Instal dependensi: `npm install`.
+2. Isi `.env.local` sesuai `.env.example` dengan konfigurasi Supabase milik proyek.
+3. Terapkan skema yang tersedia di `supabase/migrations` apabila menggunakan database baru.
+4. Jalankan `npm run dev`, lalu buka `http://localhost:3000`.
+
+Perintah pemeriksaan:
+
+```sh
+npm run lint
+npm run test
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pengalaman pembaca
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Beranda editorial: sorotan utama, navigasi kategori, ringkasan judul, filter berita, muat lebih banyak, dan pilihan redaksi.
+- Pencarian judul/isi, filter kategori dan pilihan redaksi, urutan waktu, serta pagination.
+- Simpan dan hapus berita melalui bookmark; data tersimpan di browser/perangkat yang sama, tanpa sinkronisasi akun.
+- Halaman artikel dengan pengaturan ukuran teks, perkiraan waktu baca, progres membaca, berbagi melalui perangkat atau salin tautan, dan artikel terkait.
+- Menu ponsel, navigasi keyboard, penanda fokus, tautan langsung ke konten, dan dukungan reduced motion.
+- Dashboard penulis dan admin tetap memakai autentikasi serta alur peninjauan Supabase. Konvensi middleware disesuaikan menjadi `src/proxy.ts` untuk Next.js 16.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Data asli dan pratinjau
 
-## Learn More
+`src/lib/news.ts` hanya mengambil artikel berstatus `published`. Jika koneksi berhasil tetapi belum ada artikel terbit, portal menggunakan konten contoh dari `src/lib/demo-news.ts`. Konten ini diberi penanda pratinjau, tidak dimasukkan ke database, dan otomatis digantikan setelah artikel pertama diterbitkan. Kegagalan koneksi menampilkan pesan error, bukan konten contoh.
 
-To learn more about Next.js, take a look at the following resources:
+Pilihan redaksi mengikuti kolom `is_featured`. Foto contoh tersedia lokal di `public/images`; sumbernya dicatat di `public/images/SOURCES.md`. Foto tersebut merupakan ilustrasi, bukan dokumentasi peristiwa dalam artikel.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Struktur perubahan frontend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/app/globals.css`: token dan tata letak editorial responsif.
+- `src/components/site-header.tsx`, `footer.tsx`: navigasi dan identitas portal.
+- `src/components/news-feed.tsx`, `headline-ticker.tsx`: interaksi beranda.
+- `src/components/saved-news.tsx`, `article-reader.tsx`: bookmark dan pengalaman membaca.
+- `src/lib/news-filter.ts`: pencarian, pengurutan, dan normalisasi pagination.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pengujian unit mencakup validasi artikel, pencarian literal, filter gabungan, pagination tidak valid, serta pemisahan konten contoh dari data asli/error. Alur browser diperiksa pada lebar 320, 390, 768, 1024, dan 1440 piksel.
