@@ -54,7 +54,7 @@ export default async function CategoryPage({
   return (
     <main className="site-container inner-page">
       <div className="page-title">
-        <span className="eyebrow">RAGAM CERITA BERGAYA</span>
+        <span className="eyebrow">RAGAM CERITA FORTISNEWS</span>
         <h1>
           {category.name}
           <span>.</span>

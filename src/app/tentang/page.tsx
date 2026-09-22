@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Tentang Bergaya" };
+export const metadata: Metadata = { title: "Tentang FORTISNEWS" };
 export default function AboutPage() {
   return (
     <main className="site-container inner-page about-page">
       <div className="page-title">
-        <span className="eyebrow">TENTANG BERGAYA</span>
+        <span className="eyebrow">TENTANG FORTISNEWS</span>
         <h1>
           Cerita hari ini.
           <br />
@@ -21,7 +21,7 @@ export default function AboutPage() {
         <section>
           <h2>Dekat dengan rasa ingin tahumu.</h2>
           <p>
-            Bergaya adalah portal berita dengan beragam kategori, dari nasional
+            FORTISNEWS adalah portal berita dengan beragam kategori, dari nasional
             dan ekonomi hingga teknologi, olahraga, hiburan, dan gaya hidup.
             Kami merancang pengalaman membaca yang nyaman agar kamu dapat fokus
             pada cerita.
@@ -39,7 +39,7 @@ export default function AboutPage() {
             oleh pengelola.
           </p>
           <Link href="/register" className="red-button">
-            Bergabung dengan Bergaya <ArrowUpRight size={17} />
+            Bergabung dengan FORTISNEWS <ArrowUpRight size={17} />
           </Link>
         </section>
       </div>

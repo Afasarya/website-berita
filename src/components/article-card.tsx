@@ -39,7 +39,7 @@ export function ArticleCard({
               ? "Artikel contoh"
               : article.published_at
                 ? formatRelativeTime(article.published_at)
-                : "Redaksi Bergaya"}
+                : "Redaksi FORTISNEWS"}
           </span>
           <BookmarkButton article={article} />
         </div>

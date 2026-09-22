@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ChevronRight, ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import { getArticle, getNews } from "@/lib/news";
-import { stripHtml } from "@/lib/utils";
+import { formatPublishedDate, stripHtml } from "@/lib/utils";
 import { NewsImage } from "@/components/news-image";
 import { ArticleReader } from "@/components/article-reader";
 import { ArticleCard } from "@/components/article-card";
@@ -40,6 +40,7 @@ export default async function ArticlePage({
     );
   const article = await getArticle((await params).slug);
   if (!article) notFound();
+  const publishedDate = formatPublishedDate(article.published_at);
   const related = articles
     .filter((item) => item.id !== article.id)
     .sort(
@@ -73,16 +74,10 @@ export default async function ArticlePage({
             <span className="author-avatar">b.</span>
             <div>
               <strong>
-                {article.profiles?.full_name ?? "Redaksi Bergaya"}
+                {article.profiles?.full_name ?? "Redaksi FORTISNEWS"}
               </strong>
               <span>
-                {article.published_at
-                  ? new Intl.DateTimeFormat("id-ID", {
-                      dateStyle: "long",
-                      timeStyle: "short",
-                      timeZone: "Asia/Jakarta",
-                    }).format(new Date(article.published_at)) + " WIB"
-                  : "Konten contoh · Pratinjau desain"}
+                {publishedDate ?? "Tanggal publikasi tidak tersedia"}
               </span>
             </div>
           </div>
@@ -98,7 +93,7 @@ export default async function ArticlePage({
             <figcaption>
               {article.is_demo
                 ? "Foto ilustrasi: Unsplash. Konten contoh untuk pratinjau tampilan."
-                : (article.source_note ?? "Ilustrasi artikel — Bergaya")}
+                : (article.source_note ?? "Ilustrasi artikel — FORTISNEWS")}
             </figcaption>
           </figure>
           <ArticleReader

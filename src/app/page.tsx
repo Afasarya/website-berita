@@ -71,7 +71,7 @@ export default async function Home() {
                   <h2>{hero.title}</h2>
                   <p>{stripHtml(hero.content).split(".")[0]}.</p>
                   <span className="hero-meta">
-                    {hero.profiles?.full_name ?? "Redaksi Bergaya"}{" "}
+                    {hero.profiles?.full_name ?? "Redaksi FORTISNEWS"}{" "}
                     <span>•</span>{" "}
                     {demo ? "Artikel contoh" : "Baca selengkapnya"}{" "}
                     <ArrowRight size={15} />

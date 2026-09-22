@@ -13,14 +13,18 @@ export function NewsImage({
   priority?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
+  const validSource = typeof src === "string" && src.length > 0;
+  const resolvedSource = failed || !validSource
+    ? "/images/news-placeholder.svg"
+    : src;
   return (
     <Image
-      src={failed || !src ? "/images/news-placeholder.svg" : src}
+      src={resolvedSource}
       alt={alt}
       fill
       sizes={sizes}
       preload={priority}
-      unoptimized={src.startsWith("http")}
+      unoptimized={resolvedSource.startsWith("http")}
       className="news-image"
       onError={() => setFailed(true)}
     />

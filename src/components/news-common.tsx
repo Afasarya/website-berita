@@ -82,7 +82,7 @@ export function EditorSidebar({ articles }: { articles: Article[] }) {
           <br />
           yang berarti?
         </h2>
-        <p>Bagikan sudut pandangmu dan jadi bagian dari komunitas Bergaya.</p>
+        <p>Bagikan sudut pandangmu dan jadi bagian dari komunitas FORTISNEWS.</p>
         <Link href="/dashboard/submit">
           Mulai menulis <ArrowRight size={17} />
         </Link>

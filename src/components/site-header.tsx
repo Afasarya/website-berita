@@ -16,7 +16,7 @@ import { LogoutButton } from "./auth-nav";
 export function Brand() {
   return (
     <span className="brand">
-      bergaya<span>.</span>
+      FORTISNEWS<span>.</span>
     </span>
   );
 }
@@ -41,13 +41,13 @@ export function SiteHeader({
               Buka wawasan. Temukan perspektif.
             </span>
             <Link href="/tentang">
-              Tentang Bergaya <ArrowUpRight size={12} />
+              Tentang FORTISNEWS <ArrowUpRight size={12} />
             </Link>
           </div>
         </div>
       </div>
       <div className="site-container masthead">
-        <Link href="/" aria-label="Bergaya — Beranda" className="brand-link">
+        <Link href="/" aria-label="FORTISNEWS — Beranda" className="brand-link">
           <Brand />
           <span className="brand-tagline">
             CERITA HARI INI. WAWASAN ESOK HARI.

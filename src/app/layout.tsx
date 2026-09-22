@@ -6,8 +6,8 @@ import { Footer } from "@/components/footer";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   title: {
-    default: "Bergaya — Cerita Hari Ini, Wawasan Esok Hari",
-    template: "%s | Bergaya",
+    default: "FORTISNEWS — Cerita Hari Ini, Wawasan Esok Hari",
+    template: "%s | FORTISNEWS",
   },
   description:
     "Temukan berita nasional, ekonomi, teknologi, olahraga, dan gaya hidup dalam satu perspektif yang lebih luas.",

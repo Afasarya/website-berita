@@ -7,7 +7,7 @@ export function Footer() {
         <div className="footer-main">
           <div>
             <Link href="/" className="brand">
-              bergaya<span>.</span>
+              FORTISNEWS<span>.</span>
             </Link>
             <p>
               Cerita hari ini. Wawasan esok hari.
@@ -22,8 +22,8 @@ export function Footer() {
             <Link href="/tersimpan">Berita tersimpan</Link>
           </div>
           <div className="footer-column">
-            <h3>Bergaya & kamu</h3>
-            <Link href="/tentang">Tentang Bergaya</Link>
+            <h3>FORTISNEWS & kamu</h3>
+            <Link href="/tentang">Tentang FORTISNEWS</Link>
             <Link href="/dashboard/submit">
               Kirim tulisan <ArrowUpRight size={13} />
             </Link>
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} Bergaya. Berita untuk semua.</span>
+          <span>© {new Date().getFullYear()} FORTISNEWS. Berita untuk semua.</span>
           <span>Dibuat untuk kamu yang ingin tahu.</span>
         </div>
       </div>

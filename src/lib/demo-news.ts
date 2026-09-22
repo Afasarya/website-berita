@@ -132,13 +132,13 @@ export const demoArticles: Article[] = stories.map((story, index) => {
     id: `demo-${index + 1}`,
     slug: story.slug,
     title: story.title,
-    content: `<p>${story.excerpt}</p><p>Artikel ini merupakan konten contoh untuk memperlihatkan pengalaman membaca di Bergaya. Tulisan ini bukan laporan peristiwa aktual dan tidak dimaksudkan sebagai sumber berita.</p><h2>Melihat lebih dekat</h2><p>Di balik topik yang kita temui setiap hari, selalu ada kesempatan untuk memahami sudut pandang yang berbeda. Mengamati lingkungan, mendengarkan pengalaman orang lain, dan meluangkan waktu untuk membaca dapat membantu kita melihat gambaran yang lebih luas.</p><p>Ruang diskusi yang terbuka memberi tempat bagi berbagai pengalaman. Mulai dari komunitas setempat hingga percakapan di rumah, gagasan sederhana sering kali menjadi awal dari perubahan dalam keseharian.</p><h2>Cerita yang dekat dengan kita</h2><p>Hal-hal kecil yang kita jumpai dapat menjadi titik awal sebuah cerita. Kebiasaan, tempat, dan interaksi sehari-hari membentuk cara kita memahami dunia di sekitar kita. Dengan memperhatikan detail, kita bisa menemukan makna yang sebelumnya terlewat.</p><blockquote>Setiap sudut pandang membuka kesempatan untuk memahami cerita dengan lebih utuh.</blockquote><p>Konten asli dari redaksi akan tampil menggantikan artikel contoh setelah berita pertama diterbitkan melalui dashboard.</p>`,
+    content: `<p>${story.excerpt}</p><p>Artikel ini merupakan konten contoh untuk memperlihatkan pengalaman membaca di FORTISNEWS. Tulisan ini bukan laporan peristiwa aktual dan tidak dimaksudkan sebagai sumber berita.</p><h2>Melihat lebih dekat</h2><p>Di balik topik yang kita temui setiap hari, selalu ada kesempatan untuk memahami sudut pandang yang berbeda. Mengamati lingkungan, mendengarkan pengalaman orang lain, dan meluangkan waktu untuk membaca dapat membantu kita melihat gambaran yang lebih luas.</p><p>Ruang diskusi yang terbuka memberi tempat bagi berbagai pengalaman. Mulai dari komunitas setempat hingga percakapan di rumah, gagasan sederhana sering kali menjadi awal dari perubahan dalam keseharian.</p><h2>Cerita yang dekat dengan kita</h2><p>Hal-hal kecil yang kita jumpai dapat menjadi titik awal sebuah cerita. Kebiasaan, tempat, dan interaksi sehari-hari membentuk cara kita memahami dunia di sekitar kita. Dengan memperhatikan detail, kita bisa menemukan makna yang sebelumnya terlewat.</p><blockquote>Setiap sudut pandang membuka kesempatan untuk memahami cerita dengan lebih utuh.</blockquote><p>Konten asli dari redaksi akan tampil menggantikan artikel contoh setelah berita pertama diterbitkan melalui dashboard.</p>`,
     thumbnail_url: `/images/${story.image}.jpg`,
     published_at: null,
     is_featured: index < 4,
     category_id: category.id,
     categories: category,
-    profiles: { full_name: "Redaksi Bergaya" },
+    profiles: { full_name: "Redaksi FORTISNEWS" },
     is_demo: true,
   };
 });
